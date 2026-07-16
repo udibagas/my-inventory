@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Room</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('../_navbar') %>
+
+    <div class="container mt-4">
+      <h1>Add New Room</h1>
+
+      <form method="post">
+        <div class="mb-3">
+          <label for="BuildingId" class="form-label">Building</label>
+          <select name="BuildingId" id="BuildingId" class="form-control">
+            <% buildings.forEach(b => { %>
+              <option value="<%= b.id %>"><%= b.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="code" class="form-label">Code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="code"
+            placeholder="Code"
+            name="code"
+            maxlength="5"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Name"
+            name="name"
+            maxlength="20"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            placeholder="Description"
+            name="description"
+          />
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
